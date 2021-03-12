@@ -15,13 +15,7 @@ import ru.buffer.cinemarest.service.DatabaseService
 import java.sql.ResultSet
 
 @RestController("/cinema")
-class CinemaRestController(@Autowired val jdbcTemplate: JdbcTemplate) : DatabaseService(jdbcTemplate) {
-    /**
-     * getAllCinema - возвращает все кинотеатры
-     * getAllHalls - возвращает все доступные кинозалы в кинотеатре по cinemaId
-     * getAllPlace - возвращает все места из зала по hallId
-     * putOccupSpace - бронирует место
-     */
+class CinemaRestController(@Autowired val jdbcTemplate: JdbcTemplate) : DatabaseService(jdbcTemplate){
     @GetMapping("")
     fun getAllCinema() : List<Cinema>{
         return queryGetAllCinema()
@@ -34,12 +28,12 @@ class CinemaRestController(@Autowired val jdbcTemplate: JdbcTemplate) : Database
     fun getAllPlace(@PathVariable hallId : Int) : List<Place>{
         return queryGetAllPlace(hallId)
     }
-    @PutMapping("/place/{hallId}{listNum}")
+    @PutMapping("/place/{hallId}/{listNum}")
     fun putOccupSpace(@PathVariable hallId: Int,
-                      @PathVariable listNum : Int){
-        querySetPlace(hallId, listNum)
+                      @PathVariable listNum : Int): String{
+        var result = querySetPlace(hallId, listNum)
+        return "${result} place occupied!"
     }
-
     override fun run(vararg args: String?) {
 
     }

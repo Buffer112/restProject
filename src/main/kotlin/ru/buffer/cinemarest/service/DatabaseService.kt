@@ -6,13 +6,14 @@ import org.springframework.boot.SpringBootConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
+import org.springframework.stereotype.Service
 import ru.buffer.cinemarest.models.Cinema
 import ru.buffer.cinemarest.models.Hall
 import ru.buffer.cinemarest.models.Place
 import java.sql.ResultSet
 
-
-open class DatabaseService(val jdbc: JdbcTemplate) : CommandLineRunner {
+@Service
+class DatabaseService(val jdbc: JdbcTemplate) : CommandLineRunner {
     fun queryGetAllCinema(): List<Cinema> {
         val rowAllCinema: RowMapper<Cinema> = RowMapper<Cinema> { rs: ResultSet, rowNum: Int ->
             Cinema(rs.getInt("id"),
@@ -36,9 +37,8 @@ open class DatabaseService(val jdbc: JdbcTemplate) : CommandLineRunner {
         }
         return jdbc.query("SELECT * FROM place_table where hall_id=${id}", rowAllPlace)
     }
-    fun querySetPlace(id: Int, num: Int){
-
-        jdbc.update("update place_table set occupied=TRUE where (hall_id =${id} and num=${num})")
+    fun querySetPlace(id: Int, num: Int) : Int{
+        return jdbc.update("update place_table set occupied=TRUE where (hall_id =${id} and num=${num})")
     }
     override fun run(vararg args: String?) {
         //jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS kek(id INT, name VARCHAR(50))")
