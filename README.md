@@ -31,7 +31,7 @@
 **Hall** - дата класс соответствующий сущности *hall_table*  
 **Place** - дата класс соответствующий сущности *place_table*  
 ### Тесты:
-CinemaRestControllerTest - тестирует методы контроллера CinemaRestController
-DatabaseServiceTest - тестирует методы сервиса DataBaseService
+**CinemaRestControllerTest** - тестирует методы контроллера *CinemaRestController*
+**DatabaseServiceTest** - тестирует методы сервиса *DataBaseService*
 ## Развертывание приложения
 ###
