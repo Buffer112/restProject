@@ -1,0 +1,505 @@
+--
+-- PostgreSQL database cluster dump
+--
+
+-- Started on 2021-03-13 12:05:15 MSK
+
+SET default_transaction_read_only = off;
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+
+--
+-- Roles
+--
+
+CREATE ROLE postgres;
+ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'md53175bce1d3201d16594cebf9d7eb3f9d';
+
+
+
+
+
+
+--
+-- Databases
+--
+
+--
+-- Database "template1" dump
+--
+
+\connect template1
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.2 (Ubuntu 13.2-1.pgdg20.10+1)
+-- Dumped by pg_dump version 13.2 (Ubuntu 13.2-1.pgdg20.10+1)
+
+-- Started on 2021-03-13 12:05:15 MSK
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+-- Completed on 2021-03-13 12:05:15 MSK
+
+--
+-- PostgreSQL database dump complete
+--
+
+--
+-- Database "cinema_main_database" dump
+--
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.2 (Ubuntu 13.2-1.pgdg20.10+1)
+-- Dumped by pg_dump version 13.2 (Ubuntu 13.2-1.pgdg20.10+1)
+
+-- Started on 2021-03-13 12:05:15 MSK
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3043 (class 1262 OID 16384)
+-- Name: cinema_main_database; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE cinema_main_database WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.UTF-8';
+
+
+ALTER DATABASE cinema_main_database OWNER TO postgres;
+
+\connect cinema_main_database
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 200 (class 1259 OID 16385)
+-- Name: cinema_table; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cinema_table (
+    id numeric NOT NULL,
+    name text
+);
+
+
+ALTER TABLE public.cinema_table OWNER TO postgres;
+
+--
+-- TOC entry 201 (class 1259 OID 16393)
+-- Name: hall_table; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.hall_table (
+    id integer NOT NULL,
+    name text,
+    cinema_id integer
+);
+
+
+ALTER TABLE public.hall_table OWNER TO postgres;
+
+--
+-- TOC entry 202 (class 1259 OID 16401)
+-- Name: place_table; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.place_table (
+    num integer NOT NULL,
+    hall_id integer NOT NULL,
+    occupied boolean
+);
+
+
+ALTER TABLE public.place_table OWNER TO postgres;
+
+--
+-- TOC entry 3035 (class 0 OID 16385)
+-- Dependencies: 200
+-- Data for Name: cinema_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cinema_table (id, name) FROM stdin;
+0	Gorizont
+1	Kara
+\.
+
+
+--
+-- TOC entry 3036 (class 0 OID 16393)
+-- Dependencies: 201
+-- Data for Name: hall_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.hall_table (id, name, cinema_id) FROM stdin;
+0	hrth	0
+1	gejh	0
+2	whte	0
+3	juyk	1
+4	ukty	1
+\.
+
+
+--
+-- TOC entry 3037 (class 0 OID 16401)
+-- Dependencies: 202
+-- Data for Name: place_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.place_table (num, hall_id, occupied) FROM stdin;
+43	1	f
+44	1	f
+45	1	f
+46	1	f
+47	1	f
+48	1	f
+49	1	f
+50	1	f
+51	1	f
+52	1	f
+53	1	f
+54	1	f
+55	1	f
+56	1	f
+57	1	f
+58	1	f
+59	1	f
+60	1	f
+61	1	f
+62	1	f
+63	1	f
+64	1	f
+65	1	f
+66	1	f
+67	1	f
+68	1	f
+69	1	f
+70	1	f
+71	1	f
+72	1	f
+73	1	f
+74	1	f
+75	1	f
+76	1	f
+77	1	f
+78	1	f
+79	1	f
+80	2	f
+81	2	f
+82	2	f
+83	2	f
+84	2	f
+85	2	f
+86	2	f
+87	2	f
+88	2	f
+89	2	f
+90	2	f
+91	2	f
+92	2	f
+93	2	f
+94	2	f
+95	2	f
+96	2	f
+97	2	f
+98	2	f
+99	2	f
+100	2	f
+101	2	f
+102	2	f
+103	2	f
+104	2	f
+105	2	f
+106	2	f
+107	2	f
+108	2	f
+109	2	f
+110	2	f
+111	2	f
+112	2	f
+113	2	f
+114	2	f
+115	2	f
+116	2	f
+117	2	f
+118	2	f
+119	2	f
+120	3	f
+121	3	f
+122	3	f
+123	3	f
+124	3	f
+125	3	f
+126	3	f
+127	3	f
+128	3	f
+129	3	f
+130	3	f
+131	3	f
+132	3	f
+133	3	f
+134	3	f
+135	3	f
+136	3	f
+137	3	f
+138	3	f
+139	3	f
+140	3	f
+141	3	f
+142	3	f
+143	3	f
+144	3	f
+145	3	f
+146	3	f
+147	3	f
+148	3	f
+149	3	f
+150	3	f
+151	3	f
+152	3	f
+153	3	f
+154	3	f
+155	3	f
+156	3	f
+157	3	f
+158	3	f
+159	3	f
+160	4	f
+161	4	f
+162	4	f
+163	4	f
+164	4	f
+165	4	f
+166	4	f
+167	4	f
+168	4	f
+169	4	f
+170	4	f
+171	4	f
+172	4	f
+173	4	f
+174	4	f
+175	4	f
+176	4	f
+177	4	f
+178	4	f
+179	4	f
+180	4	f
+181	4	f
+182	4	f
+183	4	f
+0	0	f
+1	0	f
+41	1	f
+40	1	f
+42	1	t
+184	4	f
+185	4	f
+186	4	f
+187	4	f
+188	4	f
+189	4	f
+190	4	f
+191	4	f
+192	4	f
+193	4	f
+194	4	f
+195	4	f
+196	4	f
+197	4	f
+198	4	f
+199	4	f
+200	4	f
+2	0	f
+3	0	f
+6	0	f
+7	0	f
+8	0	f
+9	0	f
+10	0	f
+11	0	f
+12	0	f
+13	0	f
+14	0	f
+15	0	f
+16	0	f
+17	0	f
+18	0	f
+19	0	f
+20	0	f
+21	0	f
+22	0	f
+23	0	f
+24	0	f
+25	0	f
+26	0	f
+27	0	f
+28	0	f
+29	0	f
+30	0	f
+31	0	f
+32	0	f
+33	0	f
+34	0	f
+35	0	f
+36	0	f
+37	0	f
+38	0	f
+39	0	f
+4	0	f
+5	0	f
+\.
+
+
+--
+-- TOC entry 2898 (class 2606 OID 16392)
+-- Name: cinema_table cinema_table_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cinema_table
+    ADD CONSTRAINT cinema_table_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2900 (class 2606 OID 16400)
+-- Name: hall_table hall_table_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.hall_table
+    ADD CONSTRAINT hall_table_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2902 (class 2606 OID 16415)
+-- Name: place_table place_table_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.place_table
+    ADD CONSTRAINT place_table_pk PRIMARY KEY (num, hall_id);
+
+
+--
+-- TOC entry 2903 (class 2606 OID 16404)
+-- Name: hall_table hall_table_cinema_table_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.hall_table
+    ADD CONSTRAINT hall_table_cinema_table_id_fk FOREIGN KEY (cinema_id) REFERENCES public.cinema_table(id);
+
+
+--
+-- TOC entry 2904 (class 2606 OID 16409)
+-- Name: place_table place_table_hall_table_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.place_table
+    ADD CONSTRAINT place_table_hall_table_id_fk FOREIGN KEY (hall_id) REFERENCES public.hall_table(id);
+
+
+-- Completed on 2021-03-13 12:05:15 MSK
+
+--
+-- PostgreSQL database dump complete
+--
+
+--
+-- Database "postgres" dump
+--
+
+\connect postgres
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.2 (Ubuntu 13.2-1.pgdg20.10+1)
+-- Dumped by pg_dump version 13.2 (Ubuntu 13.2-1.pgdg20.10+1)
+
+-- Started on 2021-03-13 12:05:15 MSK
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 200 (class 1259 OID 16416)
+-- Name: kek; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.kek (
+    id integer,
+    name character varying(50)
+);
+
+
+ALTER TABLE public.kek OWNER TO postgres;
+
+--
+-- TOC entry 3017 (class 0 OID 16416)
+-- Dependencies: 200
+-- Data for Name: kek; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.kek (id, name) FROM stdin;
+\.
+
+
+-- Completed on 2021-03-13 12:05:15 MSK
+
+--
+-- PostgreSQL database dump complete
+--
+
+-- Completed on 2021-03-13 12:05:15 MSK
+
+--
+-- PostgreSQL database cluster dump complete
+--
+

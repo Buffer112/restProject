@@ -4,9 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringBootConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.context.annotation.Bean
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
+import org.springframework.stereotype.Controller
 import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.context.annotation.ApplicationScope
 import ru.buffer.cinemarest.models.Cinema
 import ru.buffer.cinemarest.models.Hall
 import ru.buffer.cinemarest.models.Place
