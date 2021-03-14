@@ -4,19 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import ru.buffer.cinemarest.models.Cinema
 import ru.buffer.cinemarest.models.Hall
 import ru.buffer.cinemarest.models.Place
 import ru.buffer.cinemarest.service.DatabaseService
 import java.sql.ResultSet
 
-@RestController("/cinema")
+@RestController
+@RequestMapping("/cinema")
 class CinemaRestController(@Autowired val jdbcTemplate: JdbcTemplate) : DatabaseService(jdbcTemplate){
-    @GetMapping("")
+    @GetMapping
     fun getAllCinema() : List<Cinema>{
         return queryGetAllCinema()
     }
