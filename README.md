@@ -16,12 +16,14 @@
   
 ### Контроллер:
 **CinemaRestController** - управляет всеми запросами  
+*Запросы*:  
 *localhost:8080/cinema* - возвращает все кинотеатры  
 *localhost:8080/cinema/{cinemaId}* - возвращает все залы в кинотеатре с идендификатором cinemaId  
 *localhost:8080/cinema/place/{hallId}* - возвращает все места в зале с идендификатором hallId  
 *localhost:8080/cinema/place/{hallId}/{listNum}* - бронирует место в hallId под номером listNum  
-### Сервисы:
+### Сервис:
 **DataBaseService** - выполняет запросы к базе данных испульзуя jdbc  
+*Методы*:  
 *queryGetAllCinema* - делает запрос к базе данных и возвращает все кинотеатры  
 *queryGetAllHalls* - делает запрос к базе данных и возвращает все залы в кинотеатре с идендификатором cinemaId  
 *queryGetAllPlace* - делает запрос к базе данных и возвращает все места в зале с идендификатором hallId  
