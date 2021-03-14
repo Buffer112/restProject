@@ -30,8 +30,8 @@
 **Cinema** - дата класс соответствующий сущности *cinema_table*  
 **Hall** - дата класс соответствующий сущности *hall_table*  
 **Place** - дата класс соответствующий сущности *place_table*  
-### Тесты:
-**CinemaRestControllerTest** - тестирует методы контроллера *CinemaRestController*
-**DatabaseServiceTest** - тестирует методы сервиса *DataBaseService*
-## Развертывание приложения
+### Тесты:  
+**CinemaRestControllerTest** - тестирует методы контроллера *CinemaRestController*  
+**DatabaseServiceTest** - тестирует методы сервиса *DataBaseService*  
+## Развертывание приложения  
 ###
